@@ -1,47 +1,82 @@
 
 
+/* mobile */
 #wrapper {
-    max-width: 960px;
-    width: 90%;
+    width: 100%;
     margin: auto;
     background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: 
+        'header header'
+        'nav nav'
+        'sect1 sect1'
+        'sect2 sect2'
+        'card1 card2'
+        'card3 card4'
+        'footer footer';
+        
 }
 
 header {
     height: 75px;
+    grid-area: header;
 }
 
 nav {
     height: 150px;
+    grid-area: nav;
 }
 
 section {
     height: 125px;
 }
 
+    #c {
+        grid-area: sect1;
+    }
+
+    #d {
+        grid-area: sect2;
+    }
+
 .card {
-    width: 50%;
     height: 30vh;
 }
 
-#e, #g {
-    float: left;
-}
+    #e {
+        grid-area: card1;
+    }
 
-#f, #h {
-    float: right;
-}
+    #f {
+        grid-area: card2;
+    }
+
+    #g {
+        grid-area: card3;
+    }
+
+    #h {
+        grid-area: card4;
+    }
 
 footer {
     height: 80px;
-    clear: both;
+    grid-area: footer;
 }
 
 
+/* tablet */
 @media only screen and (min-width: 768px){
 
-    header, nav, section, div, footer {
-        background-color: palevioletred;
+    #wrapper {
+        grid-template-columns: repeat(5, 20%);
+        grid-template-areas: 
+        'nav header header header header'
+        'nav sect1 sect1 sect2 sect2'
+        'nav card1 card1 card2 card2'
+        'nav card3 card3 card4 card4'
+        'nav footer footer footer footer';
     }
 
     header {
@@ -49,28 +84,41 @@ footer {
     }
 
     nav {
-        width: 20%;
-        height: 600px;
-        float: left;
+        /* align-self: stretch; */
+        height: 100%;
     }
 
     section {
-        width: 40%;
+        /* width: 40%; */
         height: 200px;
-        float: right;
+        /* float: right; */
     }
 
     .card {
-        width: 20%;
-        float: right;
+        /* width: 20%;
+        float: right; */
         height: 250px
     }
 
     footer {
-        width: 80%;
+        /* width: 80%;
         float: right;
-        clear: right;
+        clear: right; */
         height: 150px;
+    }
+
+}
+
+/* desktop */
+@media only screen and (min-width: 960px){
+
+    #wrapper {
+        width: 90%;
+        grid-template-areas: 
+        'nav header header header header'
+        'nav sect1 sect1 sect2 sect2'
+        'nav card1 card2 card3 card4'
+        'nav footer footer footer footer';
     }
 
 }
